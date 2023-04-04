@@ -1,0 +1,39 @@
+@import url('./nav.css');
+@import url("./section.css");
+@import url('./item.css');
+@import url('./icons.css');
+@import url('./sidebar.css');
+@import url('./btn.css');
+@import url('./blog.css');
+@import url('./input.css');
+@import url('./sign.css');
+
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body {
+    background: #F5F5F5;
+    position: relative;
+}
+
+.blogs {
+    width: 100%;
+    display: flex;
+    margin-top: 50px;
+    gap: 24px;
+}
+
+.contain{
+    margin-left: 18%;
+}
+
+
+
+
+
+
+
+

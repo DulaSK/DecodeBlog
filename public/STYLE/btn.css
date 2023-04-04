@@ -1,0 +1,39 @@
+.btn {
+    border: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 46px;
+    /* or 288% */
+    color: #FFFFFF;
+    background: #00A2DC;
+    margin: 0px;
+    padding: 0;
+    padding: 0 13px;
+    height: 50px;
+    width: 125px;
+    border-radius: 4px;
+}
+
+
+.btn-search {
+background: #00A2DC;
+padding: 0;
+margin: 0;
+}
+
+.btn-download {
+    box-sizing: border-box;
+    width: 178px;
+    height: 50px;
+    background: #FFF72F;
+    border: 1px solid #FFF72F;
+    border-radius: 4px;
+    color: #000;
+    margin-bottom: 25px;
+}
+
+.btn-sign-in {
+    width: 321px;
+}

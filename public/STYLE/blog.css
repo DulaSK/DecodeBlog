@@ -1,0 +1,11 @@
+.blog-container {
+    background: #FFFFFF;
+    border-radius: 3px;
+    width: 90%;
+    height: 2182px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 43px;
+    padding-left: 68px;
+}

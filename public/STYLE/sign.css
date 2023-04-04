@@ -1,0 +1,15 @@
+.sign-in-container {
+    justify-content: center;
+    width: 100%;
+    margin: 147px auto; 
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 46px;
+}
+
+.sign-in-title {
+    margin-bottom: 40px;
+}

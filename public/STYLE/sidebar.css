@@ -1,0 +1,64 @@
+li {
+    list-style-type: none;
+    height: 46px;
+    width: 256px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 46px;
+    color: #007BFF;
+    border-bottom: 1px dashed #E7E7E7;
+}
+
+a {
+    text-decoration:none;
+}
+
+.sidebr {
+    width: 313px;
+    background: #fff;
+    padding-bottom: 21px;
+
+}
+
+.sidebar-title {
+    padding: 43px 30px 35px;
+}
+
+
+.main-sidebar {
+    /* height: 549px; */
+    background: #FFFFFF;
+    border-radius: 3px;
+    text-align: center;
+    padding-bottom: 52px;
+}
+
+.user {
+    width: 198px;
+    height: 208px;
+    margin: 25px 57px;
+}
+
+.main-sidebar-title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 46px;
+    /* identical to box height, or 288% */
+    color: #000000;
+}
+
+.main-sidebar-text {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* or 150% */
+    text-align: center;
+    color: #000000;
+    padding: 12px 17px 32px;
+}

@@ -1,0 +1,47 @@
+.inp {
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    border-radius: 4px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 46px;
+} 
+
+.inp-sign-in {
+    width: 321px;
+    height: 50px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.nav-input {
+    width: 321px;
+    height: 50px;
+    border-radius: 4px 0px 0px 4px;
+    padding: 20px;
+}
+
+
+.comment-input {
+    box-sizing: border-box;
+    width: 757px;
+    height: 80px;
+    border-radius: 4px 0px 0px 4px;
+    padding: 9px 23px;
+}
+
+
+.blog-input {
+    box-sizing: border-box;
+    width: 692px;
+    height: 50px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    padding-left: 24px;
+}
+
+.blog-content {
+    height: 181px;
+}

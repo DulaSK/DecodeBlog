@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs') %>
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="sign-in-container">
+      <h1 class="sign-in-title">Регистрация</h1>
+      <div>
+      <input class="inp inp-sign-in" type="email" placeholder="Введите email" />
+      <br>
+      <input class="inp inp-sign-in" type="email" placeholder="Введите полное имя" />
+      <br>
+      <input
+        class="inp inp-sign-in"
+        type="password"
+        placeholder="Введите пароль"
+      />
+      <br>
+      <input class="inp inp-sign-in" type="email" placeholder="Подтвердите пароль" />
+      <br>
+      <button class="btn btn-sign-in">Зарегистрироваться</button>
+    </div>
+  </body>
+</html>
