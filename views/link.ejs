@@ -8,20 +8,22 @@
     <%- include('./partials/nav.ejs') %>
     <div class="sign-in-container">
       <h1 class="sign-in-title">Регистрация</h1>
+      <form action="/api/signup" method="post">
       <div>
-      <input class="inp inp-sign-in" type="email" placeholder="Введите email" />
-      <br>
-      <input class="inp inp-sign-in" type="email" placeholder="Введите полное имя" />
-      <br>
-      <input
-        class="inp inp-sign-in"
-        type="password"
-        placeholder="Введите пароль"
-      />
-      <br>
-      <input class="inp inp-sign-in" type="email" placeholder="Подтвердите пароль" />
-      <br>
-      <button class="btn btn-sign-in">Зарегистрироваться</button>
-    </div>
+          <input class="inp inp-sign-in" type="email" placeholder="Введите email" name="email"/>
+          <br>
+          <input class="inp inp-sign-in" type="text" placeholder="Введите полное имя"  name="full_name"/>
+          <br>
+          <input
+          class="inp inp-sign-in"
+          type="password"
+          placeholder="Введите пароль"
+          name="password"/> 
+          <br>
+          <input class="inp inp-sign-in" type="password" placeholder="Подтвердите пароль" name="re_password"/> 
+          <br>
+          <button class="btn-custom btn-sign-in" type="submit">Зарегистрироваться</button>
+        </div>
+      </form>
   </body>
 </html>

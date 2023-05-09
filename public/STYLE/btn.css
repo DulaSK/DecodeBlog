@@ -7,6 +7,23 @@
     line-height: 46px;
     /* or 288% */
     color: #FFFFFF;
+    margin: 0px;
+    padding: 0;
+    padding: 0 13px;
+    height: 50px;
+    width: 125px;
+    border-radius: 4px;
+}
+
+.btn-custom {
+    border: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 46px;
+    /* or 288% */
+    color: #FFFFFF;
     background: #00A2DC;
     margin: 0px;
     padding: 0;
@@ -18,9 +35,14 @@
 
 
 .btn-search {
-background: #00A2DC;
-padding: 0;
-margin: 0;
+    background: #00A2DC;
+    padding: 0;
+    margin: 0;
+}
+
+
+.btn-sign-in {
+    width: 321px;
 }
 
 .btn-download {
@@ -34,6 +56,8 @@ margin: 0;
     margin-bottom: 25px;
 }
 
-.btn-sign-in {
-    width: 321px;
-}
+
+
+/* .btn-danger {
+    background-color: brown;
+} */

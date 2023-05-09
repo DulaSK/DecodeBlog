@@ -8,7 +8,7 @@
 @import url('./input.css');
 @import url('./sign.css');
 
-*{
+* {
     margin: 0;
     padding: 0;
     border: none;
@@ -23,17 +23,6 @@ body {
     width: 100%;
     display: flex;
     margin-top: 50px;
+    justify-content: center;
     gap: 24px;
 }
-
-.contain{
-    margin-left: 18%;
-}
-
-
-
-
-
-
-
-

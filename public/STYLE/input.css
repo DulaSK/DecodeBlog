@@ -7,7 +7,7 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 46px;
-} 
+}
 
 .inp-sign-in {
     width: 321px;
@@ -44,4 +44,23 @@
 
 .blog-content {
     height: 181px;
+}
+
+.inp-download {
+    /* box-sizing: border-box; */
+    /* width: 178px; */
+    /* height: 50px; */
+    /* background: #FFF72F; */
+    /* border: 1px solid #FFF72F; */
+    border-radius: 4px;
+    color: #000;
+    margin-bottom: 25px;
+    width: 250px;
+    border: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 46px;
+    cursor: pointer;
 }

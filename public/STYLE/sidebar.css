@@ -9,17 +9,18 @@ li {
     line-height: 46px;
     color: #007BFF;
     border-bottom: 1px dashed #E7E7E7;
+    padding-left: 30px;
 }
 
 a {
-    text-decoration:none;
+    text-decoration: none;
 }
 
 .sidebr {
     width: 313px;
     background: #fff;
     padding-bottom: 21px;
-
+    border-radius: 3px;
 }
 
 .sidebar-title {

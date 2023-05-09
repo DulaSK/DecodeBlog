@@ -5,11 +5,18 @@
     <title>Document</title>
   </head>
   <body>
-    <%- include('./partials/mainnav.ejs') %>
+    <%- include('./partials/nav.ejs') %>
     <div class="blogs">
       <div class="contain"><%-include('./partials/useritem.ejs')%></div>
 
-      <div class="categories"><%- include('./partials/sidebar.ejs') %></div>
+      <div class="categories">
+        <aside class="sidebr">
+          <h2 class="sidebar-title">Категории</h2>
+          <% categories.forEach(category =>{ %>
+          <li><a href="<%= category.key %>"><%= category.name %></a></li>
+          <%}) %>
+        </aside>
+      </div>
     </div>
   </body>
 </html>

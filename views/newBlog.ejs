@@ -2,10 +2,33 @@
 <html lang="en">
   <head>
     <%- include('./partials/head.ejs') %>
-    <title>Document</title>
+    <title>New Blog</title>
   </head>
   <body>
-    <%- include('./partials/mainnav.ejs') %> <%- include('./partials/blog.ejs')
-    %>
+    <%- include('./partials/nav.ejs') %>
+    <div class="blog-container">
+      <h1>Новый блог</h1>
+      <form action="/api/new" method="post" enctype="multipart/form-data">
+        <input
+          class="inp blog-input"
+          type="text"
+          placeholder="Введите заголовок блога"
+          name="title"
+        />
+        <select name="category" id="" class="inp blog-input">
+          <% categories.forEach(category =>{ %>
+          <option value="<%= category._id %>"><%= category.name %></option>
+          <% }) %>
+        </select>
+        <input type="file" class="inp-download" name="image" />
+        <input
+          class="inp blog-input blog-content"
+          type="text"
+          placeholder="Введите описание блога"
+          name="blog"
+        />
+        <button type="submit" class="btn-custom">Создать</button>
+      </form>
+    </div>
   </body>
 </html>

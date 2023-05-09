@@ -9,3 +9,8 @@
     padding-top: 43px;
     padding-left: 68px;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+}

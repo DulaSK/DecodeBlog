@@ -1,40 +1,35 @@
 const express = require('express');
+const session = require('express-session');
+const mongooseStore = require('connect-mongo')
+const passport = require('passport')
+
 const app = express();
+
+require('./server/config/db')
+require('./server/config/passport')
+
+app.use(express.static('public'))
+app.use(express.urlencoded())
+app.use(session({
+    name:'decodeBlog.session',
+    secret: 'keybord cat',
+    maxAge: 1000*60*60*7,
+    store: mongooseStore.create({
+        mongoUrl:'mongodb://127.0.0.1:27017'
+    })
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.set('view engine', 'ejs');
 
-app.use(express.static('public'))
+app.use(require('./server/pages/router'))
+app.use(require('./server/auth/router'))
+app.use(require('./server/Categories/router'))
+app.use(require('./server/Blog/router'))
 
-app.get('/', (req, res) => {
-    res.render('index')
-})
-
-app.get('/main', (req, res) => {
-    res.render('main')
-})
-
-app.get('/user', (req, res) => {
-    res.render('user')
-})
-
-app.get('/page', (req, res) => {
-    res.render('page')
-})
-
-app.get('/blog', (req, res) => {
-    res.render('newBlog')
-})
-
-app.get('/sign', (req, res) => {
-    res.render('sign')
-})
-
-app.get('/link', (req, res) => {
-    res.render('link')
-})
-
-
-const PORT = 8000
+const PORT = 8001
  
 app.listen(PORT, () => {
     console.log(`Listening on  PORT: ${PORT}`)
