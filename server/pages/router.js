@@ -8,11 +8,11 @@ const User = require('../auth/User')
 router.get('/', async(req, res) => {
     const allCategory = await Category.find()
 
-    if (req.isAuthenticated()) {
-        req.logout(function(err){
-            if(err){return next(err)}
-        })
-    }
+    // if (req.isAuthenticated()) {
+    //     req.logout(function(err){
+    //         if(err){return next(err)}
+    //     })
+    // }
     res.render('index' , {categories: allCategory, user: req.user ? req.user : {}})
 })
 
