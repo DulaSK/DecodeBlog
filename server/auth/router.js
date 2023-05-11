@@ -10,5 +10,3 @@ router.post('/api/signin' , passport.authenticate('local' , {failureRedirect: 'l
 router.get('/api/signout' , signOut)
 
 module.exports = router
-
-module.exports = router
