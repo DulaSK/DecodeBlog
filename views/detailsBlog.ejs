@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs') %>
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="blogs">
+      <div class="contain">
+        <div class="contain">
+          <div class="item">
+            <a href="/">
+              <img class="item-img" src="<%= blog.image %>" alt="img" value=""
+            /></a>
+            <div class="item-container">
+              <h3 class="item-title"><%= blog.title %></h3>
+              <% if(user._id){ %> <%- include('partials/dropdown.ejs') %>
+              <%}else{ %>
+              <span></span>
+              <% } %>
+            </div>
+            <p class="item-title-text"><%=blog.text %></p>
+            <br />
+            <%- include('./partials/icons.ejs') %> <% if(user._id){ %>
+            <span></span>
+            <% }else{ %>
+            <br />
+            <div class="page-link">
+              <div class="link-container">
+                <span class="page-link-content"
+                  >Чтобы оставить комментарий
+                  <a href="/link">зарегистрируйтесь</a> , или
+                  <a href="/sign">войдите</a> в аккаунт.</span
+                >
+              </div>
+            </div>
+            <% } %>
+
+            <!-- <form action="/api/new" method="post" enctype="multipart/form-data">
+              <input
+                class="inp blog-input"
+                type="text"
+                placeholder="Введите заголовок блога"
+                name="title"
+                value="<%=blog.title%>"
+              />
+            </form> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="categories">
+        <aside class="sidebr">
+          <h2 class="sidebar-title">Категории</h2>
+          <% categories.forEach(category =>{ %>
+          <li><a href="<%= category.key %>"><%= category.name %></a></li>
+          <%}) %>
+        </aside>
+      </div>
+    </div>
+  </body>
+</html>

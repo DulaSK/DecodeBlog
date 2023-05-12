@@ -1,17 +1,17 @@
 const Blog = require('./Blog')
 
 
-const createBlog = (req, res) => {
+const createBlog = async(req, res) => {
     if(
         req.file && req.body.title.length > 2 &&
         req.body.category.length > 2 && 
-        req.body.blog.length > 2
+        req.body.text.length > 2
         ){
-            new Blog({
+            await new Blog({
                 title: req.body.title,
                 category: req.body.category,
-                blog: req.body.blog,
-                image: `${req.file.destination}/${req.file.filename}`,
+                text: req.body.text,
+                image: `/IMG/${req.file.filename}`,//${req.file.destination}
                 author: req.user._id
             }).save()
             res.redirect(`/main/${req.user._id}`)

@@ -1,4 +1,4 @@
-.item{
+.item {
     width: 892px;
     background: #FFFFFF;
     border-radius: 3px;
@@ -8,6 +8,7 @@
 }
 
 .item-img {
+    width: 100%;
     margin-bottom: 40px;
 }
 
@@ -19,20 +20,20 @@
     font-weight: 400;
     font-size: 28px;
     line-height: 24px;
-    /* or 86% */  
+    /* or 86% */
     color: #000000;
 }
 
 .item-title-text {
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 24px;
-/* or 150% */
-color: #000000;
-text-align: justify;
-margin: 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* or 150% */
+    color: #000000;
+    text-align: justify;
+    margin: 0;
 }
 
 .main-comments {
@@ -53,7 +54,7 @@ margin: 0;
 }
 
 .page-link-content {
-    
+
     color: #856404;
 }
 

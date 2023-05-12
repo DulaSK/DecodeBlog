@@ -8,8 +8,28 @@
     <%- include('./partials/nav.ejs') %>
     <div class="blogs">
       <div class="contain">
-        <%-include('./partials/section.ejs') %> <%-
-        include('./partials/item.ejs')%>
+        <section class="section">
+          <h1 class="section-title">Блоги по программированию</h1>
+          <p class="section-title-text">
+            Популярные и лучшие публикации по программированию для начинающих и
+            профессиональных программистов и IT-специалистов.
+          </p>
+        </section>
+        <div class="contain">
+          <% blogs.forEach(item => { %>
+          <div class="item">
+            <a href="/detailsBlog/<%= item._id%>">
+              <img class="item-img" src="<%= item.image %>" alt="img"
+            /></a>
+            <div class="item-container">
+              <h3 class="item-title"><%= item.title %></h3>
+            </div>
+            <p class="item-title-text"><%= item.text %></p>
+            <br />
+            <%- include('./partials/icons.ejs') %>
+          </div>
+          <% }) %>
+        </div>
       </div>
 
       <div class="categories">

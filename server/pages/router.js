@@ -2,51 +2,43 @@ const express = require('express')
 const router = express.Router()
 const Category = require('../Categories/Categories')
 const User = require('../auth/User')
+const Blog = require('../Blog/Blog')
 
 
 
 router.get('/', async(req, res) => {
     const allCategory = await Category.find()
-
-    // if (req.isAuthenticated()) {
-    //     req.logout(function(err){
-    //         if(err){return next(err)}
-    //     })
-    // }
-    res.render('index' , {categories: allCategory, user: req.user ? req.user : {}})
+    const blogs = await Blog.find()
+    res.render('index' , {categories: allCategory, user: req.user ? req.user : {} , blogs})
 })
 
 router.get('/main/:id', async(req, res) => {
     const user = await User.findById(req.params.id)
+    const blogs = await Blog.find()
+    console.log('-----------------------')
+    console.log(req.body)
     if(user){
-        res.render('main' , {user: user , loginUser: req.user})
+        res.render('main' , {user: user , loginUser: req.user , blogs})
     }else{
         res.redirect('/not-found')
     }
-    console.log(req.user._id)
-    console.log(user._id)
 })
 
-router.get('/admin/:id', async(req, res) => {
-    const user = await User.findById(req.params.id)
-    res.render('admin' , {loginUser: req.user ? req.user : {} , user: user})
-})
+// router.get('/admin/:id', async(req, res) => {
+//     const user = await User.findById(req.params.id)
+//     res.render('admin' , {loginUser: req.user ? req.user : {} , user: user})
+// })
 
-router.get('/user', async(req, res) => {
+router.get('/detailsBlog/:id', async(req, res) => {
     const allCategory = await Category.find()
-    res.render('user' , {categories: allCategory , user: req.user ? req.user : {}})
-    //categ
-})
-
-router.get('/page', async(req, res) => {
-    const allCategory = await Category.find()
-    res.render('page' , {categories: allCategory , user: req.user ? req.user : {}})
+    const blog = await Blog.findById(req.params.id)
+    res.render('detailsBlog' , {categories: allCategory , user: req.user ? req.user : {}, blog})
     //catg
 })
 
 router.get('/blog', async(req, res) => {
     const allCategory = await Category.find()
-    res.render('newBlog' , {categories: allCategory , user: req.user ? req.user : {}})
+    res.render('newBlog' , {categories: allCategory , user: req.user ? req.user : {}, })
     //categ
 })
 
