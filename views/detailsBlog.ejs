@@ -15,7 +15,29 @@
             /></a>
             <div class="item-container">
               <h3 class="item-title"><%= blog.title %></h3>
-              <% if(user._id){ %> <%- include('partials/dropdown.ejs') %>
+              <% if(user._id){ %>
+              <div class="item-menu">
+                <svg
+                  class="item-menu-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-three-dots-vertical"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                  />
+                </svg>
+                <span>Еще</span>
+                <div class="dropdown">
+                  <a href="/editBlog/<%= blog._id %>" class="dropdown-edit"
+                    >Редактировать</a
+                  >
+                  <a href="#" class="dropdown-delete">Удалить</a>
+                </div>
+              </div>
               <%}else{ %>
               <span></span>
               <% } %>
@@ -36,16 +58,6 @@
               </div>
             </div>
             <% } %>
-
-            <!-- <form action="/api/new" method="post" enctype="multipart/form-data">
-              <input
-                class="inp blog-input"
-                type="text"
-                placeholder="Введите заголовок блога"
-                name="title"
-                value="<%=blog.title%>"
-              />
-            </form> -->
           </div>
         </div>
       </div>

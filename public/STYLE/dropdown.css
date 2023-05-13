@@ -23,4 +23,5 @@
 
 .item-menu:hover .dropdown {
     display: block;
+    transition: 2s;
 }

@@ -20,4 +20,16 @@ const createBlog = async(req, res) => {
         }
 }
 
-module.exports = {createBlog}
+const editBlog = (req, res) => {
+    if(
+        req.file && req.body.title.length > 2 && 
+        req.body.category.length > 2 && 
+        req.body.text.length > 2 
+    ){
+
+    }else{
+        res.redirect(`/edit/${req.body.id}?error=1`)
+    }
+}
+
+module.exports = {createBlog , editBlog}
