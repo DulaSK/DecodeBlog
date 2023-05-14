@@ -7,9 +7,11 @@
   <body>
     <%- include('./partials/nav.ejs') %>
     <div class="blog-container">
-      <h1>Редактировать блог</h1>
-      <input type="hidden" name="id" value="blog._id" />
       <form action="/api/edit/blog" method="post" enctype="multipart/form-data">
+        <h1>Редактировать блог</h1>
+        <fieldset>
+          <input type="hidden" name="id" value="<%=blog._id%>" />
+        </fieldset>
         <input
           class="inp blog-input"
           type="text"

@@ -8,7 +8,7 @@ const Blog = require('../Blog/Blog')
 
 router.get('/', async(req, res) => {
     const allCategory = await Category.find()
-    const blogs = await Blog.find().populate('category')
+    const blogs = await Blog.find().populate('category').populate('author')
     res.render('index' , {categories: allCategory, user: req.user ? req.user : {} , blogs})
 })
 
