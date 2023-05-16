@@ -41,7 +41,11 @@
                   <a href="/editBlog/<%= item._id %>" class="dropdown-edit"
                     >Редактировать</a
                   >
-                  <a href="#" class="dropdown-delete">Удалить</a>
+                  <a
+                    class="dropdown-delete"
+                    onclick="deleteBlogs('<%= item._id %>' , '<%=item.author._id %>' )"
+                    ><button>Удалить</button></a
+                  >
                 </div>
               </div>
             </div>
@@ -71,5 +75,6 @@
         </aside>
       </div>
     </div>
+    <%- include('partials/script.ejs') %>
   </body>
 </html>
