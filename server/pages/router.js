@@ -14,7 +14,7 @@ router.get('/', async(req, res) => {
 
 router.get('/main/:id', async(req, res) => {
     const user = await User.findById(req.params.id)
-    const blogs = await Blog.find()
+    const blogs = await Blog.find({author: req.user._id})
     if(user){
         res.render('main' , {user: user , loginUser: req.user , blogs})
     }else{

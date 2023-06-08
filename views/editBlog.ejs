@@ -26,9 +26,7 @@
             <%= category.name %>
           </option>
           <% }else{%>
-          <option value="<%= category._id %>" selected>
-            <%= category.name %>
-          </option>
+          <option value="<%= category._id %>"><%= category.name %></option>
           <%} }) %>
         </select>
         <input type="file" class="inp-download" name="image" />
