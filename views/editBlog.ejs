@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('./partials/head.ejs') %>
+
+<head>
+  <%- include('./partials/head.ejs') %>
     <title>Edit Blog</title>
-  </head>
-  <body>
-    <%- include('./partials/nav.ejs') %>
+</head>
+
+<body>
+  <%- include('./partials/nav.ejs') %>
     <div class="blog-container">
       <form action="/api/edit/blog" method="post" enctype="multipart/form-data">
         <h1>Редактировать блог</h1>
         <fieldset>
           <input type="hidden" name="id" value="<%=blog._id%>" />
         </fieldset>
-        <input
-          class="inp blog-input"
-          type="text"
-          placeholder="Введите заголовок блога"
-          name="title"
-          value="<%=blog.title%>"
-        />
+        <input class="inp blog-input" type="text" placeholder="Введите заголовок блога" name="title"
+          value="<%=blog.title%>" />
         <select name="category" id="" class="inp blog-input">
-          <% categories.forEach(category =>{ if(category._id === blog.category)
-          {%>
-          <option value="<%= category._id %>" selected>
-            <%= category.name %>
-          </option>
-          <% }else{%>
-          <option value="<%= category._id %>"><%= category.name %></option>
-          <%} }) %>
+          <% categories.forEach(category=>{
+            if(category.id == blog.category.id) {
+            console.log('cat id = ',category)
+            %>
+
+            <option value="<%= category._id %>" selected>
+
+              <%= category.name %>
+            </option>
+            <% }else{%>
+              <option value="<%= category._id %>">
+                <%= category.name %>
+              </option>
+              <%} }) %>
         </select>
-        <input type="file" class="inp-download" name="image" />
-        <textarea
-          class="inp blog-input blog-content"
-          type="text"
-          placeholder="Введите описание блога"
-          name="text"
-        >
+        <div>
+          <input type="file" class="inp-download" name="image" />
+        </div>
+        <textarea class="inp blog-input blog-content" type="text" placeholder="Введите описание блога" name="text">
 <%=blog.text %>
         </textarea>
+        <br>
         <button type="submit" class="btn-custom">Редактировать</button>
       </form>
     </div>
-  </body>
+</body>
+
 </html>

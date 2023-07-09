@@ -11,7 +11,7 @@
     padding-bottom: 50px;
 }
 
-svg {
+.svg {
     margin-right: 15px;
     width: 31px;
     height: 24px;
@@ -29,7 +29,11 @@ svg {
 }
 
 
-.item-container{
+.item-container {
     display: flex;
     justify-content: space-between;
+}
+
+.item-menu-icon {
+    color: #000000;
 }

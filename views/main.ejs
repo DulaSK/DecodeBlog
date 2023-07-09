@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('./partials/head.ejs') %>
+
+<head>
+  <%- include('./partials/head.ejs') %>
     <title>Document</title>
-  </head>
-  <body>
-    <%- include('./partials/nav.ejs') %>
+</head>
+
+<body>
+  <%- include('./partials/nav.ejs') %>
     <div class="blogs">
       <div class="contain">
         <section class="section main-section">
@@ -15,66 +17,67 @@
           </a>
         </section>
         <div class="contain">
-          <% blogs.forEach(item => { %>
-          <div class="item">
-            <a href="/detailsBlog/<%= item._id %>">
-              <img class="item-img" src="<%= item.image %>" alt="img"
-            /></a>
-            <div class="item-container">
-              <h3 class="item-title"><%= item.title %></h3>
-              <div class="item-menu">
-                <svg
-                  class="item-menu-icon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-three-dots-vertical"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
-                  />
-                </svg>
-                <span>Еще</span>
-                <div class="dropdown">
-                  <a href="/editBlog/<%= item._id %>" class="dropdown-edit"
-                    >Редактировать</a
-                  >
-                  <a
-                    class="dropdown-delete"
-                    onclick="deleteBlogs('<%= item._id %>' , '<%=item.author._id %>' )"
-                    ><button>Удалить</button></a
-                  >
+          <% blogs.forEach(item=> { %>
+            <div class="item">
+              <a href="/detailsBlog/<%= item._id %>">
+                <img class="item-img" src="<%= item.image %>" alt="img" /></a>
+              <div class="item-container">
+                <h3 class="item-title">
+                  <%= item.title %>
+                </h3>
+                <div class="item-menu">
+                  <svg class="item-menu-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                    <path
+                      d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                  </svg>
+                  <span>Еще</span>
+                  <div class="dropdown">
+                    <a href="/editBlog/<%= item._id %>" class="dropdown-edit">Редактировать</a>
+                    <a class="dropdown-delete"
+                      onclick="deleteBlogs('<%= item._id %>' , '<%=item.author._id %>' )"><button>Удалить</button></a>
+                  </div>
                 </div>
               </div>
+              <p class="item-title-text">
+                <%= item.text %>
+              </p>
+              <br />
+              <%- include('./partials/icons.ejs' , {category: item.category.name}) %>
             </div>
-            <p class="item-title-text"><%= item.text %></p>
-            <br />
-            <%- include('./partials/icons.ejs') %>
-          </div>
-          <% }) %>
+            <% }) %>
+              <div class="pages">
+                <% let localsString='' ; if(locals.category) { localsString=`categ=${locals.category}&` };
+                  if(locals.search){ localsString=`search=${locals.search}&` } for(let i=0; i < pages; i++){ %>
+                  <a href="?<%=localsString%>page=<%=i %>">
+                    <%=i + 1 %>
+                  </a>
+                  <% } %>
+              </div>
         </div>
       </div>
       <div class="categories">
         <aside class="sidebr main-sidebar">
           <img class="user" src="/IMG/avatar.png" alt="user" />
-          <h2 class="main-sidebar-title"><%= user.full_name %></h2>
+          <h2 class="main-sidebar-title">
+            <%= user.full_name %>
+          </h2>
           <p class="main-sidebar-text">
             В основном пишу про веб - разработку, на React & Redux
           </p>
           <p class="main-sidebar-text">285 постов за все время</p>
-          <% if(loginUser.id === user.id) { %>
-          <a href="#">
-            <button class="btn-custom">Редактировать</button>
-          </a>
-          <a href="/api/signout">
-            <button class="btn btn-danger">Выход</button>
-          </a>
-          <% } %>
+          <% if(loginUser.id===user.id) { %>
+            <a href="#">
+              <button class="btn-custom">Редактировать</button>
+            </a>
+            <a href="/api/signout">
+              <button class="btn btn-danger">Выход</button>
+            </a>
+            <% } %>
         </aside>
       </div>
     </div>
     <%- include('partials/script.ejs') %>
-  </body>
+</body>
+
 </html>

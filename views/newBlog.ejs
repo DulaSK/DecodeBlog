@@ -8,7 +8,12 @@
     <%- include('./partials/nav.ejs') %>
     <div class="blog-container">
       <h1>Новый блог</h1>
-      <form action="/api/new/blog" method="post" enctype="multipart/form-data">
+      <form
+        class="form"
+        action="/api/new/blog"
+        method="post"
+        enctype="multipart/form-data"
+      >
         <input
           class="inp blog-input"
           type="text"

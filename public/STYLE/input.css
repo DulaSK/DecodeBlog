@@ -64,3 +64,23 @@
     line-height: 46px;
     cursor: pointer;
 }
+
+
+.comment {
+    box-sizing: border-box;
+    position: absolute;
+    width: 757px;
+    height: 80px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    border-radius: 4px 0px 0px 4px;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+.comment_blog {
+    box-sizing: border-box;
+    width: 757px;
+    background: #FFFFFF;
+    resize: none;
+}

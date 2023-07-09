@@ -33,13 +33,23 @@
     border-radius: 4px;
 }
 
-
 .btn-search {
+    border: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 46px;
+    /* or 288% */
+    color: #FFFFFF;
     background: #00A2DC;
+    /* margin: 0px;
     padding: 0;
-    margin: 0;
+    padding: 0 13px;
+    height: 50px;
+    width: 125px; */
+    border-radius: 4px;
 }
-
 
 .btn-sign-in {
     width: 321px;
@@ -61,3 +71,13 @@
 /* .btn-danger {
     background-color: brown;
 } */
+
+.btn-coomment {
+    margin: 10% 0px;
+    width: 128px;
+    height: 50px;
+
+    color: #FFF;
+    background: #00A2DC;
+    border-radius: 4px;
+}

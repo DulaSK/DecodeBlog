@@ -1,68 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('./partials/head.ejs') %>
+
+<head>
+  <%- include('./partials/head.ejs') %>
     <title>Document</title>
-  </head>
-  <body>
-    <%- include('./partials/nav.ejs') %>
-    <div class="blogs">
+</head>
+
+<body>
+  <%- include('./partials/nav.ejs') %>
+    <div class="blogs deleteBlogs">
       <div class="contain">
         <div class="contain">
-          <div class="item">
+          <div class="item item-detail">
             <a href="/">
-              <img class="item-img" src="<%= blog.image %>" alt="img" value=""
-            /></a>
+              <img class="item-img" src="<%= blog.image %>" alt="img" value="" /></a>
             <div class="item-container">
-              <h3 class="item-title"><%= blog.title %></h3>
+              <h3 class="item-title">
+                <%= blog.title %>
+              </h3>
               <% if(user._id){ %>
-              <div class="item-menu">
-                <svg
-                  class="item-menu-icon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-three-dots-vertical"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
-                  />
-                </svg>
-                <span>Еще</span>
-                <div class="dropdown">
-                  <a href="/editBlog/<%= blog._id %>" class="dropdown-edit"
-                    >Редактировать</a
-                  >
-                  <a
-                    onclick="deleteBlogs('<%= blog._id %>' , '<%=blog.author._id %>' )"
-                    class="dropdown-delete"
-                  >
-                    <button>Удалить</button></a
-                  >
+                <div class="item-menu">
+                  <svg class="item-menu-icon svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                    <path
+                      d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                  </svg>
+                  <span>Еще</span>
+                  <div class="dropdown">
+                    <a href="/editBlog/<%= blog._id %>" class="dropdown-edit">Редактировать</a>
+                    <a onclick="deleteBlogs('<%= blog._id %>' , '<%=blog.author._id %>' )" class="dropdown-delete">
+                      <button>Удалить</button></a>
+                  </div>
+                </div>
+                <%}else{ %>
+                  <span></span>
+                  <% } %>
+            </div>
+            <p class="item-title-text">
+              <%=blog.text %>
+            </p>
+            <br />
+            <div class="icons">
+              <div class="date">
+                <div class="icon-date">
+                  <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="23" fill="currentColor"
+                    class="bi bi-calendar" viewBox="0 0 16 16">
+                    <path
+                      d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                  </svg>
+                  <time datetime="26-06-2020">26.06.2020 </time>
                 </div>
               </div>
-              <%}else{ %>
-              <span></span>
-              <% } %>
-            </div>
-            <p class="item-title-text"><%=blog.text %></p>
-            <br />
-            <%- include('./partials/icons.ejs') %> <% if(user._id){ %>
-            <span></span>
-            <% }else{ %>
-            <br />
-            <div class="page-link">
-              <div class="link-container">
-                <span class="page-link-content"
-                  >Чтобы оставить комментарий
-                  <a href="/link">зарегистрируйтесь</a> , или
-                  <a href="/sign">войдите</a> в аккаунт.</span
-                >
+              <div class="views">
+                <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="22" height="17" fill="currentColor"
+                  class="bi bi-eye-fill" viewBox="0 0 16 16">
+                  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                  <path
+                    d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                </svg>
+                <span>21</span>
+              </div>
+              <div class="comments">
+                <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="20" height="23" fill="currentColor"
+                  class="bi bi-chat-left-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                </svg>
+                <span> 4 </span>
+              </div>
+              <div class="web-dev">
+                <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="20" height="23" fill="currentColor"
+                  class="bi bi-chat-right-dots-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+                </svg>
+                <span>
+                  <%= blog.category.name %>
+                </span>
+              </div>
+              <div class="nast">
+                <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="16" height="18" fill="currentColor"
+                  class="bi bi-person-fill" viewBox="0 0 16 16">
+                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                </svg>
+                <span>Nast1289</span>
               </div>
             </div>
-            <% } %>
+
+            <div class="comments">
+              <% if(user._id){ %>
+                <form onSubmit="sendComment(event)">
+                  <textarea id="comment-text" class="comment" placeholder="Введит текст комментария"></textarea>
+                  <input type="hidden" value="<%= user._id %>" id="comment_author" />
+                  <input type="hidden" value="<%= blog._id %>" id="comment_blog" />
+                  <br />
+                  <button class="btn-coomment" type="submit">Cохранить</button>
+                </form>
+                <% }else{ %>
+                  <br />
+                  <div class="page-link">
+                    <div class="link-container">
+                      <span class="page-link-content">Чтобы оставить комментарий
+                        <a href="/link">зарегистрируйтесь</a> , или
+                        <a href="/sign">войдите</a> в аккаунт.</span>
+                    </div>
+                  </div>
+                  <% } %>
+                    <% if(comments){ comments.forEach(comment=> {
+                      %>
+                      <div class="comment_blog">
+                        <a href="">
+                          <%= comment.authorId.full_name%>
+                        </a>
+                        <p>
+                          <%= comment.text%>
+                        </p>
+                        <hr>
+                      </div>
+                      <% }) } %>
+            </div>
           </div>
         </div>
       </div>
@@ -70,12 +126,15 @@
       <div class="categories">
         <aside class="sidebr">
           <h2 class="sidebar-title">Категории</h2>
-          <% categories.forEach(category =>{ %>
-          <li><a href="<%= category.key %>"><%= category.name %></a></li>
-          <%}) %>
+          <% categories.forEach(category=>{ %>
+            <li><a href="<%= category.key %>">
+                <%= category.name %>
+              </a></li>
+            <%}) %>
         </aside>
       </div>
     </div>
     <%- include('partials/script.ejs') %>
-  </body>
+</body>
+
 </html>

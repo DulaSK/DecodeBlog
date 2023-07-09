@@ -10,7 +10,7 @@
     padding-left: 68px;
 }
 
-form {
+.form {
     display: flex;
     flex-direction: column;
 }

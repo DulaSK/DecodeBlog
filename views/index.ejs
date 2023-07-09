@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('./partials/head.ejs') %>
+
+<head>
+  <%- include('./partials/head.ejs') %>
     <title>Document</title>
-  </head>
-  <body>
-    <%- include('./partials/nav.ejs') %>
+</head>
+
+<body>
+  <%- include('./partials/nav.ejs') %>
     <div class="blogs">
       <div class="contain">
         <section class="section">
@@ -16,30 +18,47 @@
           </p>
         </section>
         <div class="contain">
-          <% blogs.forEach(item => { %>
-          <div class="item">
-            <a href="/detailsBlog/<%= item._id%>">
-              <img class="item-img" src="<%= item.image %>" alt="img"
-            /></a>
-            <div class="item-container">
-              <h3 class="item-title"><%= item.title %></h3>
+          <% blogs.forEach(item=> { %>
+            <div class="item">
+              <a href="/detailsBlog/<%= item._id%>">
+                <img class="item-img" src="<%= item.image %>" alt="img" /></a>
+              <div class="item-container">
+                <h3 class="item-title">
+                  <%= item.title %>
+                </h3>
+              </div>
+              <p class="item-title-text">
+                <%= item.text %>
+              </p>
+              <br />
+              <%- include('./partials/icons.ejs', {category: item.category.name}) %>
             </div>
-            <p class="item-title-text"><%= item.text %></p>
-            <br />
-            <%- include('./partials/icons.ejs') %>
-          </div>
-          <% }) %>
+            <% }) %>
+
+              <div class="pages">
+                <% let localsString='' ; if(locals.category) { localsString=`categ=${locals.category}&` };
+                  if(locals.search){ localsString=`search=${locals.search}&` } for(let i=0; i < pages; i++){ %>
+                  <a href="?<%=localsString%>page=<%=i %>">
+                    <%=i + 1 %>
+                  </a>
+                  <% } %>
+              </div>
         </div>
       </div>
 
       <div class="categories">
         <aside class="sidebr">
           <h2 class="sidebar-title">Категории</h2>
-          <% categories.forEach(category =>{ %>
-          <li><a href="<%= category.key %>"><%= category.name %></a></li>
-          <%}) %>
+          <% categories.forEach(category=>{ %>
+            <li>
+              <a href="?categ=<%= category.key %>">
+                <%= category.name %>
+              </a>
+            </li>
+            <%}) %>
         </aside>
       </div>
     </div>
-  </body>
+</body>
+
 </html>
