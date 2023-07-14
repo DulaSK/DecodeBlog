@@ -88,36 +88,57 @@
             </div>
 
             <div class="comments">
-              <% if(user._id){ %>
-                <form onSubmit="sendComment(event)">
-                  <textarea id="comment-text" class="comment" placeholder="Введит текст комментария"></textarea>
-                  <input type="hidden" value="<%= user._id %>" id="comment_author" />
-                  <input type="hidden" value="<%= blog._id %>" id="comment_blog" />
-                  <br />
-                  <button class="btn-coomment" type="submit">Cохранить</button>
-                </form>
-                <% }else{ %>
-                  <br />
-                  <div class="page-link">
-                    <div class="link-container">
-                      <span class="page-link-content">Чтобы оставить комментарий
-                        <a href="/link">зарегистрируйтесь</a> , или
-                        <a href="/sign">войдите</a> в аккаунт.</span>
-                    </div>
-                  </div>
-                  <% } %>
-                    <% if(comments){ comments.forEach(comment=> {
-                      %>
-                      <div class="comment_blog">
-                        <a href="">
-                          <%= comment.authorId.full_name%>
-                        </a>
+              <% if(comments){ comments.forEach(comment=> {
+                %>
+                <div class="comment_blog">
+                  <p>Автор:
+                    <a href="">
+                      <%=comment.authorId&&comment.authorId.full_name%>
+                    </a>
+                  </p>
+                  <% if(comment.text.length> 0){ %>
+                    <p>Комментарий:
+                      <%= comment.text%>
+                    </p>
+                    <hr>
+                    <% } %>
+                </div>
+                <% }) } %>
+
+
+                  <% if(user._id){ %>
+                    <form onSubmit="sendComment(event)">
+                      <textarea id="comment-text" class="comment" placeholder="Введит текст комментария"></textarea>
+                      <input type="hidden" value="<%= user._id %>" id="comment_author" />
+                      <input type="hidden" value="<%= blog._id %>" id="comment_blog" />\
+                      <br />
+                      <button class="btn-coomment" type="submit">Cохранить</button>
+                    </form>
+                    <% }else{ %>
+                      <% if(comments){ %>
                         <p>
-                          <%= comment.text%>
+                          <%=comments.length %> комментарий
                         </p>
-                        <hr>
-                      </div>
-                      <% }) } %>
+                        <% }else{%>
+                          <p>
+                            <%=comments.length %> комментарии
+                          </p>
+                          <% } %>
+
+
+                            <br />
+                            <div class="page-link">
+                              <div class="link-container">
+                                <span class="page-link-content">Чтобы оставить комментарий
+                                  <a href="/link">зарегистрируйтесь</a> , или
+                                  <a href="/sign">войдите</a> в аккаунт.</span>
+                              </div>
+                            </div>
+                            <% } %>
+
+
+
+
             </div>
           </div>
         </div>

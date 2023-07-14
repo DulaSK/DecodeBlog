@@ -17,7 +17,7 @@ function sendComment(e){
     const author = document.querySelector('#comment_author').value
     const blog = document.querySelector('#comment_blog').value
 
-    axios.post('/api/comment' , { text: comment_text , authorId: author, blogId: blog })
+    axios.post('/api/comment' , { text: comment_text , authorId: author, blogId: blog , })
         .then(data => {
             console.log(data)
             if(data.status.statusText === 'OK'){

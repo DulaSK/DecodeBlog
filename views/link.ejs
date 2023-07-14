@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('./partials/head.ejs') %>
+
+<head>
+  <%- include('./partials/head.ejs') %>
     <title>Document</title>
-  </head>
-  <body>
-    <%- include('./partials/nav.ejs') %>
+</head>
+
+<body>
+  <%- include('./partials/nav.ejs') %>
     <div class="sign-in-container">
       <h1 class="sign-in-title">Регистрация</h1>
       <form action="/api/signup" method="post">
-      <div>
-          <input class="inp inp-sign-in" type="email" placeholder="Введите email" name="email"/>
+        <div>
+          <input class="inp inp-sign-in" type="email" placeholder="Введите email" name="email" />
           <br>
-          <input class="inp inp-sign-in" type="text" placeholder="Введите полное имя"  name="full_name"/>
+          <input class="inp inp-sign-in" type="text" placeholder="Введите полное имя" name="full_name" />
           <br>
-          <input
-          class="inp inp-sign-in"
-          type="password"
-          placeholder="Введите пароль"
-          name="password"/> 
+          <input class="inp inp-sign-in" type="password" placeholder="Введите пароль" name="password" />
           <br>
-          <input class="inp inp-sign-in" type="password" placeholder="Подтвердите пароль" name="re_password"/> 
+          <input class="inp inp-sign-in" type="password" placeholder="Подтвердите пароль" name="re_password" />
           <br>
           <button class="btn-custom btn-sign-in" type="submit">Зарегистрироваться</button>
+
+
         </div>
       </form>
-  </body>
+</body>
+
 </html>

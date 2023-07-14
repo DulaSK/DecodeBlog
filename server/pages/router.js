@@ -120,7 +120,11 @@
 
     router.get('/detailsBlog/:id', async(req, res) => {
         const comments = await Comment.find({blogId: req.params.id}).populate('authorId')
-        console.log(comments)
+        // let countComments = 0
+        // for(let i = 0; i < comments.length; i++){
+        //     console.log([i])
+        //     countComments += +[i]
+        // }
         const allCategory = await Category.find()
         const blog = await Blog.findById(req.params.id).populate('category')
         res.render('detailsBlog' , {categories: allCategory , user: req.user ? req.user : {}, blog, comments})
